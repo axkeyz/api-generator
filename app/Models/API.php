@@ -14,5 +14,5 @@ class API extends Model
      *
      * @var string
      */
-    protected $table = 'api';
+    protected $table = 'apis';
 }

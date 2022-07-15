@@ -32,10 +32,16 @@ class API extends Model
      */
     protected $keyType = 'string';
 
+    /**
+     * Bootstrap any model features.
+     *
+     * @return void
+     */
     public static function boot(){
         parent::boot();
     
         static::creating(function ($issue) {
+            // Set id as UUID
             $issue->id = Str::uuid();
         });
     }

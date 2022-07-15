@@ -22,7 +22,7 @@ return new class extends Migration
         if (! Schema::hasColumn($tableNames['model_has_roles'], $columnNames['api_foreign_key'])) {
             Schema::table($tableNames['model_has_roles'], function (Blueprint $table) use ($tableNames, $columnNames) {
                 // Create foreign index for api_id
-                $table->unsignedBigInteger($columnNames['api_foreign_key']);
+                $table->uuid($columnNames['api_foreign_key']);
                 $table->index($columnNames['api_foreign_key'], 'model_has_roles_api_foreign_key_index');
 
                 // Drop existing primary key
@@ -49,7 +49,7 @@ return new class extends Migration
         if (! Schema::hasColumn($tableNames['model_has_permissions'], $columnNames['api_foreign_key'])) {
             Schema::table($tableNames['model_has_permissions'], function (Blueprint $table) use ($tableNames, $columnNames) {
                 // Set foreign key for api_id
-                $table->unsignedBigInteger($columnNames['api_foreign_key']);
+                $table->uuid($columnNames['api_foreign_key']);
                 $table->index($columnNames['api_foreign_key'], 'model_has_permissions_api_foreign_key_index');
 
                 // Delete existing primary key

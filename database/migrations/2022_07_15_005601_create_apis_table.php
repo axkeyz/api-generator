@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('apis', function (Blueprint $table) {
             // Set columns
-            $table->id();
+            $table->uuid('id')->unique()->primary();
             $table->foreignId('user_id');
             $table->foreignId('api_type_id');
             $table->string('name');

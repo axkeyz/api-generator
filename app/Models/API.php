@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use Illuminate\Support\Str;
+
 class API extends Model
 {
     use HasFactory;
@@ -15,4 +17,26 @@ class API extends Model
      * @var string
      */
     protected $table = 'apis';
+
+    /**
+     * Indicates if the model's ID is auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
+
+    /**
+     * The data type of the auto-incrementing ID.
+     *
+     * @var string
+     */
+    protected $keyType = 'string';
+
+    public static function boot(){
+        parent::boot();
+    
+        static::creating(function ($issue) {
+            $issue->id = Str::uuid();
+        });
+    }
 }

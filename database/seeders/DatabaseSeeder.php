@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 use Database\Seeders\RoleandPermissionSeeder;
+use Database\Seeders\TeamSeeder;
 use Database\Seeders\UserSeeder;
 
 class DatabaseSeeder extends Seeder
@@ -25,6 +26,7 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call(RoleandPermissionSeeder::class);
+        $this->call(TeamSeeder::class);
         $this->call(UserSeeder::class);
     }
 }

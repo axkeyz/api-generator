@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 use Illuminate\Support\Str;
+use App\Models\User;
 
 class API extends Model
 {
@@ -44,5 +45,12 @@ class API extends Model
             // Set id as UUID
             $issue->id = Str::uuid();
         });
+    }
+
+    /**
+     * Get the user that owns the api.
+     */
+    public function user() {
+        return $this->belongsTo(User::class, 'id');
     }
 }

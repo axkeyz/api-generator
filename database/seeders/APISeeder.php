@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 use App\Models\API;
+use App\Models\User;
 use Database\Seeders\APITypeSeeder;
 
 class APISeeder extends Seeder

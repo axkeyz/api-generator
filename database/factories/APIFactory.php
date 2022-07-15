@@ -5,6 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 use Carbon\Carbon;
+use App\Models\User;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\API>
@@ -33,7 +34,7 @@ class APIFactory extends Factory
         ]);
 
         return [
-            'user_id' => fake()->numberBetween( 1, 50 ),
+            'user_id' => User::all()->random()->id,
             'api_type_id' => fake()->numberBetween( 1, 2 ),
             'name' => fake()->word(2, true),
             'description' => fake()->paragraph(),

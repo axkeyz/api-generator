@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\APIController;
+use App\Http\Controllers\APITypeController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\TeamController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,4 +20,25 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::controller(UserController::class)->group(function(){
+    Route::get('/user', 'index');
+    Route::get('/user/{user}', 'show');
+});
+
+Route::controller(TeamController::class)->group(function(){
+    Route::get('/team', 'index');
+    Route::get('/team/{team}', 'show');
+});
+
+Route::controller(APIController::class)->group(function(){
+    Route::get('/ua', 'index');
+    Route::get('/ua/create', 'create');
+    Route::get('/ua/{api}', 'show');
+});
+
+Route::controller(APITypeController::class)->group(function(){
+    Route::get('/type', 'index');
+    Route::get('/type/{api_type}', 'show');
 });

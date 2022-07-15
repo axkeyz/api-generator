@@ -15,4 +15,11 @@ class APIType extends Model
      * @var string
      */
     protected $table = 'api_types';
+
+    /**
+     * Get the apis associated with the api type.
+     */
+    public function apis() {
+        return $this->hasMany(API::class, 'api_type_id');
+    }
 }

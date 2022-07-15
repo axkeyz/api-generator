@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use Illuminate\Support\Str;
 use App\Models\User;
+use App\Models\APIType;
 
 class API extends Model
 {
@@ -46,11 +47,18 @@ class API extends Model
             $issue->id = Str::uuid();
         });
     }
-
+    
     /**
      * Get the user that owns the api.
      */
     public function user() {
-        return $this->belongsTo(User::class, 'id');
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    /**
+     * Get the api type of the api.
+     */
+    public function type() {
+        return $this->belongsTo(APIType::class, 'api_type_id');
     }
 }

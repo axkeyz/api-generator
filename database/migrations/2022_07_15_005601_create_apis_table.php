@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('name');
             $table->mediumText('description')->nullable();
             $table->json('template')->nullable();
-            $table->integer('num_sets');
+            $table->integer('num_sets')->default(0);
             $table->boolean('disabled')->default(false);
             $table->timestamps();
 

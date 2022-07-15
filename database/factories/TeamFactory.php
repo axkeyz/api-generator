@@ -23,7 +23,7 @@ class TeamFactory extends Factory
             ->getTimeStamp()
         ) ;
         
-        $updated_at= Carbon::createFromFormat('Y-m-d H:i:s', $created_at)
+        $updated_at = Carbon::createFromFormat('Y-m-d H:i:s', $created_at)
             ->addHours( fake()->numberBetween( 9, 500 ) );
 
         return [

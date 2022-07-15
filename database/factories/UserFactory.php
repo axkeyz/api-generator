@@ -27,7 +27,7 @@ class UserFactory extends Factory
         $email_verified_at= Carbon::createFromFormat('Y-m-d H:i:s', $created_at)
             ->addHours( fake()->numberBetween( 1, 8 ) );
         
-        $updated_at= Carbon::createFromFormat('Y-m-d H:i:s', $created_at)
+        $updated_at = Carbon::createFromFormat('Y-m-d H:i:s', $created_at)
             ->addHours( fake()->numberBetween( 9, 500 ) );
 
         return [

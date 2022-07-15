@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::create('apis', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
+            $table->string('name');
+            $table->mediumText('description')->nullable();
             $table->json('template')->nullable();
             $table->integer('num_sets');
             $table->boolean('disabled')->default(false);

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->boolean('disabled')->default(false);
+            $table->json('meta')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

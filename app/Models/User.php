@@ -9,11 +9,27 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
 use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Support\Str;
+use App\Models\API;
 
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, HasRoles;
 
+    /**
+     * Indicates if the model's ID is auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
+
+    /**
+     * The data type of the auto-incrementing ID.
+     *
+     * @var string
+     */
+    protected $keyType = 'string';
+    
     /**
      * The attributes that are mass assignable.
      *
@@ -43,4 +59,25 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Bootstrap any model features.
+     *
+     * @return void
+     */
+    public static function boot(){
+        parent::boot();
+    
+        static::creating(function ($issue) {
+            // Set id as UUID
+            $issue->id = Str::uuid();
+        });
+    }
+
+    /**
+     * Get the apis created by the user.
+     */
+    public function apis(){
+        return $this->hasMany(API::class);
+    }
 }

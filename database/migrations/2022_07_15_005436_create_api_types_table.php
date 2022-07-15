@@ -7,22 +7,24 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
+     * Run the migration to create the api_types table.
      *
      * @return void
      */
     public function up()
     {
         Schema::create('api_types', function (Blueprint $table) {
+            // Set columns
             $table->id();
-            $table->string('name');
+            $table->string('name')->unique();
             $table->mediumText('description')->nullable();
+            $table->boolean('disabled')->default(true);
             $table->timestamps();
         });
     }
 
     /**
-     * Reverse the migrations.
+     * Reverse the migration by deleting the api_types table.
      *
      * @return void
      */

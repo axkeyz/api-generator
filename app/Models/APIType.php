@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class APIType extends Model
 {
     use HasFactory;
+
+    protected $table = 'api_types';
 }

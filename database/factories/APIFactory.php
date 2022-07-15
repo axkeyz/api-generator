@@ -33,8 +33,8 @@ class APIFactory extends Factory
         ]);
 
         return [
-            'user_id' => fake()->numberBetween( 1, 2 ),
-            'api_type_id' => fake()->numberBetween( 1, 500 ),
+            'user_id' => fake()->numberBetween( 1, 50 ),
+            'api_type_id' => fake()->numberBetween( 1, 2 ),
             'name' => fake()->word(2, true),
             'description' => fake()->paragraph(),
             'num_sets' => fake()->numberBetween( 1, 500 ),

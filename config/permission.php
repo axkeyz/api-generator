@@ -94,6 +94,13 @@ return [
          */
 
         'team_foreign_key' => 'team_id',
+
+        /*
+         * Combine features with user apis feature and the related model's
+         * foreign key is other than `role_id`.
+         */
+
+        'api_foreign_key' => 'api_id',
     ],
 
     /*

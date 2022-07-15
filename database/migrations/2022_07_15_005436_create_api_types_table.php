@@ -13,14 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('apis', function (Blueprint $table) {
+        Schema::create('api_types', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
             $table->string('name');
             $table->mediumText('description')->nullable();
-            $table->json('template')->nullable();
-            $table->integer('num_sets');
-            $table->boolean('disabled')->default(false);
             $table->timestamps();
         });
     }
@@ -32,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('apis');
+        Schema::dropIfExists('api_types');
     }
 };

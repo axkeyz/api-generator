@@ -28,5 +28,6 @@ class DatabaseSeeder extends Seeder
         $this->call(RoleandPermissionSeeder::class);
         $this->call(TeamSeeder::class);
         $this->call(UserSeeder::class);
+        $this->call(APISeeder::class);
     }
 }

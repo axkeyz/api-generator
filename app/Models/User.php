@@ -39,6 +39,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'username',
     ];
 
     /**
@@ -76,8 +77,20 @@ class User extends Authenticatable
 
     /**
      * Get the apis created by the user.
+     * 
+     * @return \App\Models\User
      */
     public function apis(){
         return $this->hasMany(API::class);
+    }
+
+    /**
+     * Get the login providers of the user.
+     * 
+     * @return \App\Models\User
+     */
+    public function providers()
+    {
+        return $this->hasMany(Provider::class,'user_id','id');
     }
 }

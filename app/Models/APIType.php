@@ -18,6 +18,8 @@ class APIType extends Model
 
     /**
      * Get the apis associated with the api type.
+     * 
+     * @return \App\Models\APIType
      */
     public function apis() {
         return $this->hasMany(API::class, 'api_type_id');

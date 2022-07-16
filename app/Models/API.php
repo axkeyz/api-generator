@@ -50,6 +50,8 @@ class API extends Model
     
     /**
      * Get the user that owns the api.
+     * 
+     * @return \App\Models\API
      */
     public function user() {
         return $this->belongsTo(User::class, 'user_id');
@@ -57,6 +59,8 @@ class API extends Model
 
     /**
      * Get the api type of the api.
+     * 
+     * @return \App\Models\API
      */
     public function type() {
         return $this->belongsTo(APIType::class, 'api_type_id');

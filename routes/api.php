@@ -21,6 +21,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// Routes to create a new token
+Route::post('/tokens/create', function (Request $request) {
+    $token = $request->user()->createToken($request->token_name);
+ 
+    return ['token' => $token->plainTextToken];
+});
+
 // Routes for 3rd-party authentication services
 Route::get('/login/{provider}', [AuthController::class,'redirectToProvider']);
 Route::get('/login/{provider}/callback', [AuthController::class,'handleProviderCallback']);
